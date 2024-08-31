@@ -1,72 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Portal Cautivo</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+    <title>Portal Cautivo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->    
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
-				</div>
+    
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="images/img-01.png" alt="IMG">
+                </div>
 
-				<form class="login100-form validate-form" action="script.php" method="POST">
-					<span class="login100-form-title">
-						Wifi Gratis 
-					</span>
+                <form class="login100-form validate-form" action="script.php" method="POST" id="captive-portal-form">
+                    <span class="login100-form-title">
+                        Wifi Gratis
+                    </span>
 
-					
-					
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Acceder a wifi
-						</button>
-					</div>
+                    <div class="wrap-input100 validate-input" data-validate="Nombre es requerido">
+                        <input class="input100" type="text" name="nombre" placeholder="Nombre" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
 
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	
+                    <div class="wrap-input100 validate-input" data-validate="Apellido es requerido">
+                        <input class="input100" type="text" name="apellido" placeholder="Apellido" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
 
-	
-<!--===============================================================================================-->	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+                    <div class="wrap-input100 validate-input" data-validate="Correo electrónico válido es requerido: ex@abc.xyz">
+                        <input class="input100" type="email" name="correo" placeholder="Correo Electrónico" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Teléfono es requerido">
+                        <input class="input100" type="tel" name="telefono" placeholder="Teléfono" pattern="[0-9]{10}" title="Ingrese un número de teléfono válido (solo 10 dígitos)" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms" class="terms-text">Acepto los <a href="#" target="_blank">términos y condiciones</a></label>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" id="connectBtn" type="submit" disabled>
+                            Acceder a wifi
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!--===============================================================================================-->    
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        });
+
+        // Deshabilitar botón hasta que se acepte los términos
+        const termsCheckbox = document.getElementById('terms');
+        const connectBtn = document.getElementById('connectBtn');
+
+        termsCheckbox.addEventListener('change', function() {
+            connectBtn.disabled = !termsCheckbox.checked;
+        });
+
+        // Validación del formulario antes de enviar
+        document.getElementById('captive-portal-form').addEventListener('submit', function(event) {
+            const telefono = document.querySelector('input[name="telefono"]');
+            const correo = document.querySelector('input[name="correo"]');
+            const patternTelefono = /^[0-9]{10}$/;
+
+            if (!patternTelefono.test(telefono.value)) {
+                alert("Por favor, ingrese un número de teléfono válido (solo 10 dígitos).");
+                event.preventDefault();
+            }
+
+            if (!correo.checkValidity()) {
+                alert("Por favor, ingrese un correo electrónico válido.");
+                event.preventDefault();
+            }
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
 
 </body>
 </html>
